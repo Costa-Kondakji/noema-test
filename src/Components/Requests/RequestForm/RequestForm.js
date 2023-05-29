@@ -22,7 +22,7 @@ const RequestForm = (props) => {
     const [dateRanges, setDateRanges] = useState([
         {
             startDate: new Date(),
-            endDate: null,
+            endDate: new Date(),
             key: "selection"
         }
     ]);
@@ -88,14 +88,19 @@ const RequestForm = (props) => {
     }, [errors])
 
     const validateDate = (value) => {
-        let date = new Date();
-        date.setDate(date.getDate() + 15);
 
-        let diff = (value.selection.endDate.getTime() - value.selection.startDate.getTime()) / 1000;
-        diff /= (60 * 60 * 24);
-        const yearsDifference = Math.abs(Math.round(diff / 365.25));
+        if (!Array.isArray(value)) {
+            let date = new Date();
+            date.setDate(date.getDate() + 15);
 
-        return value.selection.startDate > date && yearsDifference >= 1 && yearsDifference <= 3
+            let diff = (value.selection.endDate.getTime() - value.selection.startDate.getTime()) / 1000;
+            diff /= (60 * 60 * 24);
+            const yearsDifference = Math.abs(Math.round(diff / 365.25));
+
+            return value.selection.startDate > date && yearsDifference >= 1 && yearsDifference <= 3
+        }
+        else
+            return false
     }
 
     const onSubmit = data => {
