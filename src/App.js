@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Header from './Components/Header/Header';
+import Requests from './Components/Requests/Requests';
+import RequestList from './Components/RequestList/RequestList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
-function App() {
+
+function App(props) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/create" element={<Requests />} />
+        <Route path="/requests" element={<RequestList />} />
+        <Route
+          path="*"
+          element={<Navigate to="create" replace={true} />}
+        />
+      </Routes>
+    </BrowserRouter>
+
+
+
+
   );
 }
 

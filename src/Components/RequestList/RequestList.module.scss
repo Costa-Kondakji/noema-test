@@ -1,0 +1,20 @@
+@import '/src/scss/colors';
+@import '/src/scss/sizes';
+@import '/src/scss/breakpoints';
+
+
+.request-list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 5rem;
+    color: $text-color-dark;
+    font-size: $text-size-md;
+
+    .empty-list{
+        width: 100%;
+        text-align: center;
+        transform: translateX(-50%, -50%);
+        font-size: $text-size-lg;
+    }
+}

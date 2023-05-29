@@ -1,0 +1,54 @@
+@import '/src/scss/colors';
+@import '/src/scss/sizes';
+@import '/src/scss/breakpoints';
+
+
+.navbar-container {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+
+    .navbar {
+        color: $text-color-dark;
+        font-size: $text-size-lg;
+        font-weight: 500;
+        transition: all .3s ease;
+        margin: 0px 2rem;
+
+        @media (max-width: $md) {
+            margin: 0;
+        }
+
+        .navbar-collapse {
+            width: 100%;
+
+            @media (max-width: $md) {
+                background-color: $background-color-dark;
+                font-weight: 600;
+                padding: 1rem 4rem;
+            }
+
+            .navbar-nav {
+                display: flex;
+                gap: 2em;
+                margin-left: auto;
+
+                @media (max-width: $md) {
+                    --bs-nav-link-color: #fff;
+                    --bs-nav-link-hover-color: #f15822;
+                    gap: .5rem;
+                }
+
+                .navbar-nav-item {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .navbar-brand {
+            margin-left: 2rem;
+        }
+
+        .navbar-toggler {
+            margin-right: 2rem;
+        }
+    }
+}

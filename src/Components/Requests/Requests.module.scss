@@ -1,0 +1,22 @@
+@import '/src/scss/colors';
+@import '/src/scss/sizes';
+@import '/src/scss/breakpoints';
+
+.request-container {
+    margin-top: 5rem;
+    color: $text-color-dark;
+    font-size: $text-size-md;
+
+
+    .spinner {
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 3rem;
+        width: 3rem;
+        transform: translateX(-50%, -50%);
+    }
+}

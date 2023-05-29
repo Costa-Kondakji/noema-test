@@ -1,0 +1,96 @@
+@import '/src/scss/colors';
+@import '/src/scss/sizes';
+@import '/src/scss/breakpoints';
+
+.form {
+    margin-top: 3rem;
+
+    .form-label {
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-input {
+        width: 100%;
+        background-color: $form-background-color;
+        color: $form-text-color;
+        border-radius: 0%;
+
+
+        &:focus {
+            border: 2px solid $secondary-background-color;
+            box-shadow: none;
+        }
+    }
+
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+
+        .button {
+            border-radius: 0;
+            font-weight: 700;
+
+            @media (max-width: $sm) {
+                margin-top: 2rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        .submit-button {
+            background-color: $form-button-background-color;
+            color: $form-button-text-color;
+
+
+            &:hover {
+                background-color: $secondary-background-color;
+                color: $form-button-background-color;
+            }
+        }
+
+        .clear-button {
+            background-color: $secondary-background-color;
+            color: $form-button-text-color;
+
+            &:hover {
+                background-color: #fff;
+                color: $form-button-background-color;
+            }
+        }
+    }
+
+    .error-container{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        color: red;
+        padding: 0 2rem;
+        background-color: #ffd9d9;
+
+        
+        @media (max-width: $sm) {
+            margin-bottom: 2rem;
+        }
+    }
+
+
+    /* Works for Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
+
+::placeholder {
+    color: $form-text-color !important;
+}

@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* @media (max-width: 768px) {
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+} */
+
+
+.container-fluid{
+  padding: 0 !important;
+}
+
+.rdrMonth{
+  width: 100% !important;
+}
