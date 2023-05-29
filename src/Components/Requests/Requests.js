@@ -24,7 +24,7 @@ const Requests = (props) => {
             setIsLoading(true);
 
             let countriesOptions = getAllCountries();
-            // const countryResults = axios(countriesOptions);
+            const countryResults = axios(countriesOptions);
 
 
             let currenciesOptions = getAllCurrencies();
@@ -33,23 +33,19 @@ const Requests = (props) => {
 
             Promise.all([
                 /*
-                Unfortunately the country API has gone under maintance on Monday 29 May
-                Visit https://restcountries.com/
-
-                The data used in the application is hard coded in static files
-                However the original logic used for fetching the API is still in the code for review.
-
+                Unfortunately the country API is not stable at all times, in case of failure of the API please uncomment the line 46 and comment line 45 to enable static data usage.
+                Visit https://restcountries.com/ to see API availability.
                 */
 
-                // countryResults,
+                countryResults,
                 // currencyResults,
             ])
                 .then(results => {
+                    let countries = results[0].data.map(country => country.name.common)
+                    setCountries(countries);
+                    // setCountries(mockCountries.countries)
 
-                    // setCountries(results[0].data)
-                    // setCurrencies(results[1].data)
-
-                    setCountries(mockCountries.countries)
+                    // setCurrencies(results[1].data) 
                     setCurrencies(mockCurrencies.currencies)
                 })
                 .finally(() => {
@@ -75,7 +71,7 @@ const Requests = (props) => {
                     Loading...
                 </Spinner> :
                 <RequestForm
-                    countries={countries}
+                    countries={countries.sort()}
                     currencies={currencies}
 
                 />
